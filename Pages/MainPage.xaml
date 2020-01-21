@@ -9,9 +9,9 @@
       Title="MainPage">
 
     <Grid>
-        <Button Content="Принят" HorizontalAlignment="Left" Margin="269,84,0,0" VerticalAlignment="Top" Width="155" Height="40" FontSize="18" Click="Accepted"/>
-        <Button Content="Склад" HorizontalAlignment="Left" Margin="584,84,0,0" VerticalAlignment="Top" Width="155" Height="40" FontSize="18" Click="Warehouse"/>
-        <Button Content="Продан" HorizontalAlignment="Left" Margin="269,175,0,0" VerticalAlignment="Top" Width="155" Height="40" FontSize="18" Click="Solded"/>
+        <Button Content="Принято" HorizontalAlignment="Left" Margin="269,84,0,0" VerticalAlignment="Top" Width="155" Height="40" FontSize="18" Click="Accepted"/>
+        <Button Content="На складе" HorizontalAlignment="Left" Margin="584,84,0,0" VerticalAlignment="Top" Width="155" Height="40" FontSize="18" Click="Warehouse"/>
+        <Button Content="Продано" HorizontalAlignment="Left" Margin="269,175,0,0" VerticalAlignment="Top" Width="155" Height="40" FontSize="18" Click="Solded"/>
         <Button Content="Отчёт" HorizontalAlignment="Left" Margin="584,175,0,0" VerticalAlignment="Top" Width="155" Height="40" FontSize="18" Click="Report"/>
     </Grid>
 </Page>

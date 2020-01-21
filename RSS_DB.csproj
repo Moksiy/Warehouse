@@ -55,20 +55,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Element.cs" />
+    <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReportPage.xaml.cs">
+    <Compile Include="Pages\ReportPage.xaml.cs">
       <DependentUpon>ReportPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SoldedStatus.xaml.cs">
+    <Compile Include="Pages\SoldedStatus.xaml.cs">
       <DependentUpon>SoldedStatus.xaml</DependentUpon>
     </Compile>
-    <Page Include="AcceptedStatus.xaml">
+    <Page Include="DialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="Pages\AcceptedStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -76,7 +84,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AcceptedStatus.xaml.cs">
+    <Compile Include="Pages\AcceptedStatus.xaml.cs">
       <DependentUpon>AcceptedStatus.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
@@ -87,21 +95,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="OnWarehauseStatus.xaml">
+    <Page Include="Pages\OnWarehauseStatus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ReportPage.xaml">
+    <Page Include="Pages\ReportPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SoldedStatus.xaml">
+    <Page Include="Pages\SoldedStatus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OnWarehauseStatus.xaml.cs">
+    <Compile Include="Pages\OnWarehauseStatus.xaml.cs">
       <DependentUpon>OnWarehauseStatus.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
