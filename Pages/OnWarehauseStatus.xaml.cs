@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace RSS_DB
 {
@@ -23,6 +24,76 @@ namespace RSS_DB
         public OnWarehauseStatus()
         {
             InitializeComponent();
+
+            //Выводим элементы из списка
+            Output();
+        }
+
+        /// <summary>
+        /// Из бд в listview
+        /// </summary>
+        private async void Output()
+        {
+            #region CONNECTION
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "SELECT ProductName, Orders.StatusID, ProductCost, Quantity, (Quantity * ProductCost) AS Result, StatusDate " +
+                                      "FROM dbo.Orders " +
+                                      "INNER JOIN dbo.Products ON dbo.Orders.ProductID = dbo.Products.ProductID " +
+                                      "WHERE Orders.StatusID = 1";
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                //Очищаем список
+                MainWindow.listOrders.Clear();
+
+                //Чистим listview
+                ListViewItems.Items.Clear();
+
+                //Добавляем в список
+                while (dataReader.Read())
+                {
+                    MainWindow.listOrders.Add(new Element(Convert.ToString(dataReader[0]),
+                                             Convert.ToByte(dataReader[1]), Convert.ToDouble(dataReader[2]),
+                                             Convert.ToInt32(dataReader[3]), Convert.ToDouble(dataReader[4]),
+                                             Convert.ToDateTime(dataReader[5])));
+                }
+            }
+            catch (SqlException ex)
+            {
+                //Выводим сообщение об ошибке
+                MessageBox.Show(Convert.ToString(ex));
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
+            #endregion
+
+            #region OUTPUT
+            //Выводим в listview элементы списка
+            foreach (var item in MainWindow.listOrders)
+            {
+                ListViewItem listItem = new ListViewItem();
+
+                listItem.Content = item;
+
+                ListViewItems.Items.Add(listItem);
+            }
+            #endregion
         }
 
         /// <summary>
@@ -34,6 +105,17 @@ namespace RSS_DB
         {
             MainPage page = new MainPage();
             this.NavigationService.Navigate(page);
+        }
+
+        /// <summary>
+        /// Обработчик нажатия правой кнопкой мыши по элементу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListView_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListViewItem lv = sender as ListViewItem;
+            MessageBox.Show(lv.Content.ToString());
         }
     }
 }
