@@ -1,14 +1,15 @@
-﻿<Page x:Class="RSS_DB.Report"
+﻿<Page x:Class="RSS_DB.ReportPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RSS_DB"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Report" ShowsNavigationUI="False">
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Title="ReportPage">
 
     <Grid>
-        
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="51" Height="25" Click="MainMenu"/>
+
     </Grid>
 </Page>

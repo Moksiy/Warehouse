@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RSS_DB"
         mc:Ignorable="d"
-        Title="Склад" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Склад" Height="700" Width="1000" ResizeMode="NoResize">
     <Grid>
         <Frame x:Name="MainPage" Margin="0,0,0,0" NavigationUIVisibility="Hidden"/>
     </Grid>

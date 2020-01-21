@@ -5,17 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RSS_DB"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="700" d:DesignWidth="1000"
       Title="AcceptedStatus" ShowsNavigationUI="False">
 
     <Grid>
-        <ListView HorizontalAlignment="Left" Height="358" Margin="41,39,0,0" VerticalAlignment="Top" Width="524">
+        <ListView HorizontalAlignment="Left" Height="358" Margin="132,99,0,0" VerticalAlignment="Top" Width="524">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="51" Height="25" Click="MainMenu"/>
 
     </Grid>
 </Page>

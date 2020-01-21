@@ -24,5 +24,16 @@ namespace RSS_DB
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Назад, в главное меню
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainMenu(object sender, RoutedEventArgs e)
+        {
+            MainPage page = new MainPage();
+            this.NavigationService.Navigate(page);
+        }
     }
 }

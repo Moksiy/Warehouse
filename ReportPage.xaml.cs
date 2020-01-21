@@ -16,13 +16,24 @@ using System.Windows.Shapes;
 namespace RSS_DB
 {
     /// <summary>
-    /// Логика взаимодействия для Report.xaml
+    /// Логика взаимодействия для ReportPage.xaml
     /// </summary>
-    public partial class Report : Page
+    public partial class ReportPage : Page
     {
-        public Report()
+        public ReportPage()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Назад, на главное меню
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainMenu(object sender, RoutedEventArgs e)
+        {
+            MainPage page = new MainPage();
+            this.NavigationService.Navigate(page);
         }
     }
 }

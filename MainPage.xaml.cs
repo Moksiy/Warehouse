@@ -32,7 +32,8 @@ namespace RSS_DB
         /// <param name="e"></param>
         private void Accepted(object sender, RoutedEventArgs e)
         {
-
+            AcceptedStatus page = new AcceptedStatus();
+            this.NavigationService.Navigate(page);
         }
 
         /// <summary>
@@ -42,7 +43,8 @@ namespace RSS_DB
         /// <param name="e"></param>
         private void Warehouse(object sender, RoutedEventArgs e)
         {
-
+            OnWarehauseStatus page = new OnWarehauseStatus();
+            this.NavigationService.Navigate(page);
         }
 
         /// <summary>
@@ -52,7 +54,8 @@ namespace RSS_DB
         /// <param name="e"></param>
         private void Solded(object sender, RoutedEventArgs e)
         {
-
+            SoldedStatus page = new SoldedStatus();
+            this.NavigationService.Navigate(page);
         }
 
         /// <summary>
@@ -62,7 +65,8 @@ namespace RSS_DB
         /// <param name="e"></param>
         private void Report(object sender, RoutedEventArgs e)
         {
-
+            ReportPage page = new ReportPage();
+            this.NavigationService.Navigate(page);
         }
 
         /// <summary>
@@ -72,7 +76,8 @@ namespace RSS_DB
         /// <param name="e"></param>
         private void AllOrders(object sender, RoutedEventArgs e)
         {
-
+            AllStatuses page = new AllStatuses();
+            this.NavigationService.Navigate(page);
         }
     }
 }

@@ -24,5 +24,11 @@ namespace RSS_DB
         {
             InitializeComponent();
         }
+
+        private void MainMenu(object sender, RoutedEventArgs e)
+        {
+            MainPage page = new MainPage();
+            this.NavigationService.Navigate(page);
+        }
     }
 }
