@@ -10,6 +10,13 @@
 
     <Grid>
         <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="51" Height="25" Click="MainMenu"/>
+        <ListView HorizontalAlignment="Left" Height="538" Margin="68,58,0,0" VerticalAlignment="Top" Width="858">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Page>

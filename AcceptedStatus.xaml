@@ -9,7 +9,7 @@
       Title="AcceptedStatus" ShowsNavigationUI="False">
 
     <Grid>
-        <ListView HorizontalAlignment="Left" Height="358" Margin="132,99,0,0" VerticalAlignment="Top" Width="524">
+        <ListView HorizontalAlignment="Left" Height="530" Margin="57,62,0,0" VerticalAlignment="Top" Width="881">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

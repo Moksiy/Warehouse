@@ -10,6 +10,17 @@
 
     <Grid>
         <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="51" Height="25" Click="MainMenu"/>
+        <ListView HorizontalAlignment="Left" Height="567" Margin="10,62,0,0" VerticalAlignment="Top" Width="748">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <RadioButton Tag="" x:Name="allFilter" Content="Все" HorizontalAlignment="Left" Margin="842,62,0,0" VerticalAlignment="Top" Checked="RadioButtonChecked"/>
+        <RadioButton Tag="0" x:Name="acceptFilter" Content="Принят" HorizontalAlignment="Left" Margin="842,82,0,0" VerticalAlignment="Top" Checked="RadioButtonChecked"/>
+        <RadioButton Tag="1" x:Name="warehouseFilter" Content="На складе" HorizontalAlignment="Left" Margin="842,102,0,0" VerticalAlignment="Top" Checked="RadioButtonChecked"/>
+        <RadioButton Tag="2" x:Name="soldedFilter" Content="Продан" HorizontalAlignment="Left" Margin="842,122,0,0" VerticalAlignment="Top" Checked="RadioButtonChecked"/>
 
     </Grid>
 </Page>

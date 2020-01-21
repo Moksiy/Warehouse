@@ -20,13 +20,16 @@ namespace RSS_DB
     /// </summary>
     public partial class ReportPage : Page
     {
+        public string FilterValue { get; set; } = "";
+
         public ReportPage()
         {
             InitializeComponent();
+            allFilter.IsChecked = true;
         }
 
         /// <summary>
-        /// Назад, на главное меню
+        /// Назад, в главное меню
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -34,6 +37,19 @@ namespace RSS_DB
         {
             MainPage page = new MainPage();
             this.NavigationService.Navigate(page);
+        }
+
+        /// <summary>
+        /// Обработчик выбора фильтра
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadioButtonChecked(object sender, RoutedEventArgs e)
+        {
+            if (sender is RadioButton item)
+            {
+                FilterValue = item.Tag.ToString();
+            }
         }
     }
 }

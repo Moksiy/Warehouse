@@ -68,10 +68,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AllStatuses.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -82,9 +78,6 @@
     </Page>
     <Compile Include="AcceptedStatus.xaml.cs">
       <DependentUpon>AcceptedStatus.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AllStatuses.xaml.cs">
-      <DependentUpon>AllStatuses.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

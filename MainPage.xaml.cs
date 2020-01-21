@@ -68,16 +68,5 @@ namespace RSS_DB
             ReportPage page = new ReportPage();
             this.NavigationService.Navigate(page);
         }
-
-        /// <summary>
-        /// Все заказы
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AllOrders(object sender, RoutedEventArgs e)
-        {
-            AllStatuses page = new AllStatuses();
-            this.NavigationService.Navigate(page);
-        }
     }
 }
