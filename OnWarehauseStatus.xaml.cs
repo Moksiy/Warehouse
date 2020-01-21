@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace RSS_DB
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для OnWarehauseStatus.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OnWarehauseStatus : Page
     {
-        public MainWindow()
+        public OnWarehauseStatus()
         {
-            InitializeComponent();            
-            MainPage mainPage = new MainPage();
-            MainPage.NavigationService.Navigate(mainPage);
+            InitializeComponent();
         }
     }
 }
