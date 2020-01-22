@@ -10,21 +10,26 @@
 
     <Grid>
         <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="51" Height="25" Click="MainMenu"/>
-        <ListView x:Name="ListViewItems" HorizontalAlignment="Left" Height="538" Margin="68,58,0,0" VerticalAlignment="Top" Width="858">
+        <ListView x:Name="ListViewItems" HorizontalAlignment="Left" Height="538" Margin="68,58,0,0" VerticalAlignment="Top" Width="858" SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="350" DisplayMemberBinding="{Binding Path=ProductName}">Товар</GridViewColumn>
                     <GridViewColumn Width="90" DisplayMemberBinding="{Binding Path=Quantity}">Количество</GridViewColumn>
                     <GridViewColumn Width="120" DisplayMemberBinding="{Binding Path=Cost}">Стоимость</GridViewColumn>
                     <GridViewColumn Width="120" DisplayMemberBinding="{Binding Path=Result}">Итого</GridViewColumn>
-                    <GridViewColumn Width="170" DisplayMemberBinding="{Binding Path=StatusDate}">Дата</GridViewColumn>  
+                    <GridViewColumn Width="170" DisplayMemberBinding="{Binding Path=StatusDate}">Дата</GridViewColumn>
                 </GridView>
             </ListView.View>
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
-                    <EventSetter Event="MouseRightButtonDown" Handler="ListView_MouseRightButtonDown" />
+                    <EventSetter Event="PreviewMouseRightButtonDown" Handler="ListViewItem_MouseRightButtonDown" />
                 </Style>
             </ListView.ItemContainerStyle>
+            <ListView.ContextMenu>
+                <ContextMenu x:Name="CONTEXT">
+                    <MenuItem Header="Продать" Click="MenuItem_Click"></MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
 
     </Grid>

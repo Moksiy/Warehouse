@@ -29,6 +29,8 @@ namespace RSS_DB
             Output();
         }
 
+        public static int index { get; set; }
+
         /// <summary>
         /// Из бд в listview
         /// </summary>
@@ -47,7 +49,7 @@ namespace RSS_DB
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT ProductName, Orders.StatusID, ProductCost, Quantity, (Quantity * ProductCost) AS Result, StatusDate " +
+                command.CommandText = "SELECT ProductName, Orders.StatusID, ProductCost, Quantity, (Quantity * ProductCost) AS Result, StatusDate, OrderID " +
                                       "FROM dbo.Orders " +
                                       "INNER JOIN dbo.Products ON dbo.Orders.ProductID = dbo.Products.ProductID " +
                                       "WHERE Orders.StatusID = 1";
@@ -65,10 +67,16 @@ namespace RSS_DB
                 //Добавляем в список
                 while (dataReader.Read())
                 {
-                    MainWindow.listOrders.Add(new Element(Convert.ToString(dataReader[0]),
+                    ListViewItem listItem = new ListViewItem();
+
+                    listItem.Content = new Element(Convert.ToString(dataReader[0]),
                                              Convert.ToByte(dataReader[1]), Convert.ToDouble(dataReader[2]),
                                              Convert.ToInt32(dataReader[3]), Convert.ToDouble(dataReader[4]),
-                                             Convert.ToDateTime(dataReader[5])));
+                                             Convert.ToDateTime(dataReader[5]));
+
+                    listItem.Tag = dataReader[6];
+
+                    ListViewItems.Items.Add(listItem);
                 }
             }
             catch (SqlException ex)
@@ -80,18 +88,6 @@ namespace RSS_DB
             {
                 //В любом случае закрываем подключение
                 connection.Close();
-            }
-            #endregion
-
-            #region OUTPUT
-            //Выводим в listview элементы списка
-            foreach (var item in MainWindow.listOrders)
-            {
-                ListViewItem listItem = new ListViewItem();
-
-                listItem.Content = item;
-
-                ListViewItems.Items.Add(listItem);
             }
             #endregion
         }
@@ -108,14 +104,52 @@ namespace RSS_DB
         }
 
         /// <summary>
-        /// Обработчик нажатия правой кнопкой мыши по элементу
+        /// Обработчик на нажатие правой кнопки мыши по элементу listview
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ListView_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        private void ListViewItem_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ListViewItem lv = sender as ListViewItem;
-            MessageBox.Show(lv.Content.ToString());
+            ListViewItem item = sender as ListViewItem;
+            object obj = item.Tag;            
+            ContextMenu cm = this.FindName("CONTEXT") as ContextMenu;
+            cm.IsOpen = true;
+            index = Convert.ToInt32(obj);
+        }
+
+        private async void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "UPDATE Orders SET StatusID = 2 WHERE OrderID = "+$"{index}";
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+            }
+            catch (SqlException ex)
+            {
+                //Выводим сообщение об ошибке
+                MessageBox.Show(Convert.ToString(ex));
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
+
+            //Обновляем listview
+            Output();
         }
     }
 }
