@@ -131,7 +131,8 @@ namespace RSS_DB
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "UPDATE Orders SET StatusID = 2 WHERE OrderID = "+$"{index}";
+                command.CommandText = "UPDATE Orders SET StatusID = 2 WHERE OrderID = "+$"{index}" +
+                    " UPDATE Orders SET StatusDate = '"+$"{DateTime.Now}"+"' WHERE OrderID = "+ $"{index}";
 
                 command.Connection = connection;
 

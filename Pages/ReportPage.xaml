@@ -10,10 +10,15 @@
 
     <Grid>
         <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="51" Height="25" Click="MainMenu"/>
-        <ListView HorizontalAlignment="Left" Height="567" Margin="10,62,0,0" VerticalAlignment="Top" Width="748">
+        <ListView x:Name="List" HorizontalAlignment="Left" Height="517" Margin="10,62,0,0" VerticalAlignment="Top" Width="748">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Width="250" DisplayMemberBinding="{Binding Path=ProductName}">Товар</GridViewColumn>
+                    <GridViewColumn Width="90" DisplayMemberBinding="{Binding Path=Quantity}">Количество</GridViewColumn>
+                    <GridViewColumn Width="115" DisplayMemberBinding="{Binding Path=Cost}">Стоимость</GridViewColumn>
+                    <GridViewColumn Width="115" DisplayMemberBinding="{Binding Path=Result}">Итого</GridViewColumn>
+                    <GridViewColumn Width="170" DisplayMemberBinding="{Binding Path=StatusDate}">Дата</GridViewColumn>
+
                 </GridView>
             </ListView.View>
         </ListView>
@@ -21,6 +26,12 @@
         <RadioButton Tag="0" x:Name="acceptFilter" Content="Принят" HorizontalAlignment="Left" Margin="842,82,0,0" VerticalAlignment="Top" Checked="RadioButtonChecked"/>
         <RadioButton Tag="1" x:Name="warehouseFilter" Content="На складе" HorizontalAlignment="Left" Margin="842,102,0,0" VerticalAlignment="Top" Checked="RadioButtonChecked"/>
         <RadioButton Tag="2" x:Name="soldedFilter" Content="Продан" HorizontalAlignment="Left" Margin="842,122,0,0" VerticalAlignment="Top" Checked="RadioButtonChecked"/>
+        <DatePicker x:Name="FirstDate" HorizontalAlignment="Left" Margin="763,162,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="SecondDate" HorizontalAlignment="Left" Margin="891,162,0,0" VerticalAlignment="Top"/>
+        <Label Content="-" HorizontalAlignment="Left" Margin="868,153,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="1.534,-0.658"/>
+        <Button Content="Обновить" HorizontalAlignment="Left" Margin="842,208,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label Content="Сумма:" HorizontalAlignment="Left" Margin="441,579,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="Sum" HorizontalAlignment="Left" Margin="521,584,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="20"/>
 
     </Grid>
 </Page>
